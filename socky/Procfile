@@ -1,1 +1,1 @@
-web: ws_password="password" thin -R config.ru -p3001 start
+web: bundle exec thin -R config.ru -p $PORT start
