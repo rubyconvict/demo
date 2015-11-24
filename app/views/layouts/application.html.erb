@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= content_for?(:title) ? yield(:title) : "Demo" %></title>
+    <meta name="description" content="<%= content_for?(:description) ? yield(:description) : "Demo" %>">
+    <% cache('head') do %>
+      <title>Demo</title>
+      <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true %>
+      <%#= javascript_include_tag 'application', async: 'true', 'data-turbolinks-track' => true %>
+      <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+      <meta name=viewport content="width=device-width, initial-scale=1">
+    <% end %>
+    <%= csrf_meta_tags %>
+  </head>
+  <body>
+    <header>
+      <%= render 'layouts/navigation' %>
+    </header>
+    <main role="main">
+       <%= render 'layouts/messages' %>
+       <%= yield %>
+    </main>
+
+    <% cache('footer') do %>
+      <footer id="info" data-turbolinks-permanent>
+        <p>Created by <a href="#">Me</a></p>
+      </footer>
+    <% end %>
+  </body>
+</html>

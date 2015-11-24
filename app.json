@@ -1,0 +1,12 @@
+{
+  "name": "Demo",
+  "description": "Demo app",
+  "repository": "https://github.com/rubyconvict/demo",
+  "logo": "https://s.gravatar.com/avatar/7e3734b320adfb8361a6b943ef1c9656?s=80&amp;r=g",
+  "keywords": ["demo"],
+  "addons": [ "heroku-postgresql" ],
+  "scripts": {"postdeploy": "bundle exec rake db:migrate db:seed"},
+  "env": {
+    "RAILS_ENV": "production"
+  }
+}

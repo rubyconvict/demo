@@ -1,0 +1,19 @@
+<div class="page-header">
+  <%= link_to todo_lists_path, :class => 'btn btn-default' do %>
+    <span class="glyphicon glyphicon-list-alt"></span>
+    Back
+  <% end %>
+  <%= link_to edit_todo_list_path(@todo_list), :class => 'btn btn-primary' do %>
+    <span class="glyphicon glyphicon-pencil"></span>
+    Edit
+  <% end %>
+  <%= link_to todo_list_todos_path(@todo_list), :class => 'btn btn-primary' do %>
+    <span class="glyphicon glyphicon-plus"></span>
+    Add todos
+  <% end %>
+  <h1>Show todo_list</h1>
+</div>
+<dl class="dl-horizontal">
+  <dt>Name:</dt>
+  <dd><%= @todo_list.name %></dd>
+</dl>

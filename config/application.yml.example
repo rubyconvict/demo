@@ -1,0 +1,14 @@
+ws_host: 'ws://0.0.0.0:3001'
+ws_password: 'password'
+http_host: 'http://0.0.0.0:3001'
+
+production:
+  ws_host: ''
+  ws_password: ''
+  http_host: ''
+  ADMIN_NAME: ''
+  ADMIN_EMAIL: ''
+  ADMIN_PASSWORD: ''
+  DOMAIN_NAME: ''
+  SECRET_KEY_BASE: ''
+  DEMO_DATABASE_PASSWORD: ''

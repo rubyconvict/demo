@@ -1,0 +1,20 @@
+<% decorated_todo_list = @todo_list.decorate %>
+
+<div class="public_show_todo_list">
+
+  <span class='text-muted'>My todo list</span>
+  <%= render partial: 'todos/public_show', object: decorated_todo_list, as: :todo %>
+
+  <hr>
+
+  <div class='well'>
+    <span class='text-muted'>My todos</span>
+    <%= render partial: 'todos/public_show', collection: decorated_todo_list.todos, as: :todo %>
+  </div>
+
+</div>
+
+<%= javascript_tag do %>
+  var ws_host = "<%= ENV['ws_host'] -%>";
+  var channel_hash = "<%= @todo_list.slug -%>";
+<% end %>

@@ -1,0 +1,55 @@
+<div class="page-header">
+  <%= link_to new_todo_list_path, :class => 'btn btn-default' do %>
+    <span class="glyphicon glyphicon-plus"></span>
+    New Todo list
+  <% end %>
+  <h1>Listing todo_lists</h1>
+</div>
+<div>
+  <table class="table table-striped table-bordered table-hover">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>SHARE URL</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <%= content_tag_for(:tr, @todo_lists) do |todo_list| %>
+        <td><%= link_to todo_list.name, todo_list_todos_path(todo_list) %></td>
+        <td><%= public_show_todo_list_url(todo_list.slug) %></td>
+        <td>
+          <!-- Split button -->
+          <form action="<%= todo_list_path(todo_list) %>" class="button_to" method="get">
+            <div class="btn-group">
+              <button type="submit" class="btn btn-default" title="See">
+                <i class="glyphicon glyphicon-eye-open"></i>
+                See
+                <input id="todo_lists" name="todo_lists" type="hidden" value="true">
+              </button>
+              <% if policy(todo_list).update? || policy(todo_list).destroy? %>
+                <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" title="Other">
+                  <span class="caret"></span>
+                  <span class="sr-only sr-only-focusable">Other</span>
+                </button>
+                <ul class="dropdown-menu" role="menu">
+                  <% if policy(todo_list).update? %>
+                    <li>
+                      <%= link_to ' Edit', edit_todo_list_path(todo_list), class: 'glyphicon glyphicon-list-alt' %>
+                    </li>
+                  <% end %>
+                  <% if policy(todo_list).destroy? %>
+                    <li class="divider"></li>
+                    <li>
+                      <%= link_to ' Delete', todo_list, class: 'glyphicon glyphicon-trash', method: :delete, data: { confirm: 'Are you sure?' } %>
+                    </li>
+                  <% end %>
+                </ul>
+              <% end %>
+            </div>
+          </form>
+        </td>
+      <% end %>
+    </tbody>
+  </table>
+</div>
