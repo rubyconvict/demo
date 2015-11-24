@@ -12,6 +12,7 @@
 
 # Ignore ruby-version
 /.ruby-version
+/.ruby-gemset
 
 /lib/templates
 
