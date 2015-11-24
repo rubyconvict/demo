@@ -3,7 +3,7 @@ ws_password: 'password'
 http_host: 'http://0.0.0.0:3001'
 
 production:
-  ws_host: ''
+  ws_host: 'wss://'
   ws_password: ''
   http_host: ''
   ADMIN_NAME: ''

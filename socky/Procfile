@@ -1,0 +1,1 @@
+web: ws_password="password" thin -R config.ru -p3001 start
